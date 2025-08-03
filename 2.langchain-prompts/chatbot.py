@@ -1,10 +1,10 @@
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
-model = ChatOpenAI()
+model = ChatGoogleGenerativeAI(model='gemini-1.5-flash-latest')
 
 chat_history = [
     SystemMessage(content='You are a helpful AI assistant')
@@ -17,6 +17,6 @@ while True:
         break
     result = model.invoke(chat_history)
     chat_history.append(AIMessage(content=result.content))
-    print("AI: ",result.content)
+    print("AI: ", result.content)
 
 print(chat_history)
