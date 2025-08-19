@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-class HuggingFaceChatClient:
+class HuggingFaceApiChatClient:
     def __init__(self, repo_id="google/gemma-2-2b-it", temperature=1.0, max_tokens=256):
         self.repo_id = repo_id
         self.temperature = temperature

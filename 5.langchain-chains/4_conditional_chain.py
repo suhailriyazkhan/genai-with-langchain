@@ -1,5 +1,5 @@
-from langchain_openai import ChatOpenAI
-from langchain_anthropic import ChatAnthropic
+from utils.gemini_client import GoogleGenAIChatClient
+from utils.hf_api_client import HuggingFaceChatClient
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -10,7 +10,7 @@ from typing import Literal
 
 load_dotenv()
 
-model = ChatOpenAI()
+model = GoogleGenAIChatClient().model
 
 parser = StrOutputParser()
 
